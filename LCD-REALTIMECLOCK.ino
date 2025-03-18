@@ -3,17 +3,17 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 
-// Creăm obiectul RTC
+
 RTC_DS3231 rtc;
 
-// Creăm obiectul LCD Nokia 5110 cu pinii corecti (4, 5, 6, 7, 8)
+// LCD-ul Nokia 5110 cu pinii corecti (4, 5, 6, 7, 8)
 Adafruit_PCD8544 lcd = Adafruit_PCD8544(4, 5, 6, 7, 8);  // CLK, DIN, DC, CE, RST
 
 void setup() {
-  // Începem comunicarea serială pentru debug
+  
   Serial.begin(115200);
 
-  // Inițializăm librăria I2C
+  
   Wire.begin();
 
   // Inițializăm LCD-ul Nokia 5110
@@ -53,12 +53,12 @@ void loop() {
   lcd.print("-");
   lcd.print(now.year(), DEC);
 
-  // Lăsăm mai mult spațiu între data și ora (triplăm spațiul)
-  lcd.setCursor(0, 5);  // Mutăm cursorul pentru a lăsa 3 linii goale între data și ora
-  lcd.print("             "); // Linie goală
+  // Lăsăm spațiu între data și ora 
+  lcd.setCursor(0, 5);  
+  lcd.print("             "); 
 
-  // Afișăm ora pe al patrulea rând
-  lcd.setCursor(0,20);  // Afișăm ora pe rândul 6
+  // Afișăm ora 
+  lcd.setCursor(0,20);  
   lcd.print("Ora: ");
   lcd.print(now.hour(), DEC);
   lcd.print(":");
